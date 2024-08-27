@@ -21,14 +21,14 @@
   top: 0;
   left: 7%;
   width: 5%;
-  background: rgba(139, 0, 0, 0.3);
+  background: var(--red-overlay);
 }
 
 .hero::after {
   top: 0;
   right: 0;
   width: 88%;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--black-overlay);
 }
 
 .hero-content {
@@ -38,5 +38,5 @@
 
 .hero-content p {
   font-size: 1.75em;
-  color: white;
+  color: var(--white);
 }
