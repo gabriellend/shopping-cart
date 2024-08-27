@@ -1,0 +1,50 @@
+.item {
+  position: relative;
+  width: 22%; /* Adjust based on your preference */
+  margin-bottom: 20px;
+  padding-top: 20px;
+  overflow: hidden;
+  background-color: var(--white);
+  border: 1px solid rgb(204, 204, 204);
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: scale(1.03);
+}
+
+.item-image {
+  width: 100%;
+  padding-top: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: grayscale(100%);
+  background-position: top;
+}
+
+.item-title {
+  padding: 10px;
+  text-align: center;
+}
+
+.item-title h3 {
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+.item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(139, 0, 0, 0.85);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  visibility: hidden; /* Hide initially */
+  font-size: 1.2em;
+}
+
+.item:hover .item-overlay {
+  visibility: visible; /* Show on hover */
+}
