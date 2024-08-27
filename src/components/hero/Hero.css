@@ -1,0 +1,42 @@
+.hero {
+  background-image: url('src/assets/photos/hero.jpg');
+  background-size: cover;
+  background-position: 50% 25%;
+  display: flex;
+  height: 60vh;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero::before {
+  top: 0;
+  left: 7%;
+  width: 5%;
+  background: rgba(139, 0, 0, 0.3);
+}
+
+.hero::after {
+  top: 0;
+  right: 0;
+  width: 88%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  width: 60%;
+  z-index: 2;
+}
+
+.hero-content p {
+  font-size: 1.75em;
+  color: white;
+}

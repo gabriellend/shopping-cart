@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import Logo from '../logo/Logo';
-import './NavBar.css';
 import { useCart } from '../../contexts/CartContext';
+import { Link } from 'react-router-dom';
+import { Logo } from '../index';
+import './NavBar.css';
 
 const NavBar = () => {
   const { cartItems } = useCart();
