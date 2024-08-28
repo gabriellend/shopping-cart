@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import { ENDPOINTS } from '../config/api';
 import { InventoryItem } from '../components/item-card/ItemCardModel';
 
@@ -7,8 +7,9 @@ interface ShopContextValue {
 }
 
 export const ShopContext = createContext<ShopContextValue>();
+const useInventory = () => useContext(ShopContext);
 
-export const ShopProvider = ({ children }) => {
+const ShopProvider = ({ children }) => {
   const [items, setItems] = useState<InventoryItem[]>([]);
 
   useEffect(() => {
@@ -29,3 +30,5 @@ export const ShopProvider = ({ children }) => {
     <ShopContext.Provider value={{ items }}>{children}</ShopContext.Provider>
   );
 };
+
+export { ShopProvider, useInventory };

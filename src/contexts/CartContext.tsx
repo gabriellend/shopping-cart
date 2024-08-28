@@ -1,7 +1,18 @@
-import { createContext, useContext, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  Dispatch,
+  SetStateAction,
+} from 'react';
+import { InventoryItem } from '../components/item-card/ItemCardModel';
 
-const CartContext = createContext();
+interface CartContextValue {
+  cartItems: InventoryItem[];
+  setCartItems: Dispatch<SetStateAction<InventoryItem[]>>;
+}
 
+const CartContext = createContext<CartContextValue>();
 const useCart = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {

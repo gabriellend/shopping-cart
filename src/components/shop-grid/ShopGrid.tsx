@@ -1,15 +1,14 @@
-import { ShopContext } from '../../contexts';
-import { useContext } from 'react';
+import { useInventory } from '../../contexts';
 import { InventoryItem } from '../item-card/ItemCardModel';
 import { ItemCard } from '../index';
 import './ShopGrid.css';
 
 const ShopGrid = () => {
-  const { items } = useContext(ShopContext);
+  const { items } = useInventory();
   return (
     <div className="shop">
       {items.map((item: InventoryItem) => (
-        <ItemCard item={item} />
+        <ItemCard key={item.id} item={item} />
       ))}
     </div>
   );
