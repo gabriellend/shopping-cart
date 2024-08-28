@@ -2,27 +2,20 @@ import { InventoryItem } from './ItemCardModel';
 import './ItemCard.css';
 import { useCart } from '../../contexts';
 import { Icons } from '../../assets/icons';
+import { Link } from 'react-router-dom';
 
 const ItemCard = ({ item }: { item: InventoryItem }) => {
-  const { cartItems, setCartItems } = useCart();
+  const { cartItems, addToCart } = useCart();
   const isItemInCart = cartItems.some((cartItem) => cartItem.id === item.id);
-
-  const addToCart = (item: InventoryItem) => {
-    setCartItems((prevItems) => {
-      const updatedItems = [...prevItems, item];
-      return updatedItems;
-    });
-  };
 
   return (
     <div className="item">
-      <div
-        className="item-image"
-        style={{ backgroundImage: `url(${item.image})` }}
-      ></div>
-      <div className="item-title">
-        <h3>{item.title}</h3>
-      </div>
+      <Link to={`/detail/${item.id}`}>
+        <div
+          className="item-image"
+          style={{ backgroundImage: `url(${item.image})` }}
+        ></div>
+      </Link>
       <div className="item-overlay" onClick={() => addToCart(item)}>
         {isItemInCart ? (
           <>
@@ -33,6 +26,11 @@ const ItemCard = ({ item }: { item: InventoryItem }) => {
           'Add to cart'
         )}
       </div>
+      <Link to={`/detail/${item.id}`}>
+        <div className="item-title">
+          <h3>{item.title}</h3>
+        </div>
+      </Link>
     </div>
   );
 };
