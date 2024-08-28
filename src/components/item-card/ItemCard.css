@@ -41,10 +41,19 @@
   color: white;
   text-align: center;
   padding: 10px 0;
-  visibility: hidden; /* Hide initially */
+  visibility: hidden;
   font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .item:hover .item-overlay {
-  visibility: visible; /* Show on hover */
+  visibility: visible;
+}
+
+.check-mark {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
 }

@@ -1,6 +1,7 @@
 import { useCart } from '../../contexts/CartContext';
 import { Link } from 'react-router-dom';
 import { Logo } from '../index';
+import { Icons } from '../../assets/icons';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -19,7 +20,7 @@ const NavBar = () => {
       </div>
       <div className="cart">
         <Link to="/cart">
-          <img src="src/assets/icons/shopping-cart.png" alt="Cart" />
+          <img src={Icons.shoppingCart} alt="Cart" />
           <span className="cart-badge">{cartItems.length}</span>
         </Link>
       </div>
