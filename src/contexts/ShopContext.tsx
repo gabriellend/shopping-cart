@@ -1,9 +1,10 @@
 import { createContext, useState, useEffect, useContext } from 'react';
-import { ENDPOINTS } from '../config/api';
 import { InventoryItem } from '../components/item-card/ItemCardModel';
+import { fetchInventory } from '../api/inventory';
 
 interface ShopContextValue {
   items: InventoryItem[];
+  error: string | null;
 }
 
 export const ShopContext = createContext<ShopContextValue>();
@@ -11,23 +12,27 @@ const useInventory = () => useContext(ShopContext);
 
 const ShopProvider = ({ children }) => {
   const [items, setItems] = useState<InventoryItem[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchInventory = async () => {
+    const loadInventory = async () => {
       try {
-        const response = await fetch(ENDPOINTS.WOMENS_CLOTHING);
-        const data = await response.json();
+        const data = await fetchInventory();
         setItems(data);
+        setError(null);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error loading inventory:', error);
+        setError('Failed to load inventory');
       }
     };
 
-    fetchInventory();
+    loadInventory();
   }, []);
 
   return (
-    <ShopContext.Provider value={{ items }}>{children}</ShopContext.Provider>
+    <ShopContext.Provider value={{ items, error }}>
+      {children}
+    </ShopContext.Provider>
   );
 };
 

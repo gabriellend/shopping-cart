@@ -5,3 +5,54 @@
   gap: 50px;
   padding: 70px;
 }
+
+.error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 30px auto;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.error-message h1 {
+  font-size: 1.5em;
+  margin: 10px 0 10px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.error-message p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.error-message .divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--red);
+  margin: 15px 0;
+}
+
+.error-message .btn-retry {
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: 2px solid var(--black);
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border 0.3s ease;
+}
+
+.error-message .btn-retry:hover {
+  background-color: var(--red);
+  color: #000;
+  border: 2px solid var(--red);
+}
