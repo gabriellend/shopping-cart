@@ -9,17 +9,6 @@
   transform: scale(1.03);
 }
 
-.item-image {
-  width: 100%;
-  padding-top: 125%;
-  background-size: 70%;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: grayscale(100%);
-  border: 1px solid rgb(204, 204, 204);
-  box-sizing: border-box;
-}
-
 .item-title {
   padding: 10px;
   text-align: center;

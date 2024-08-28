@@ -3,6 +3,7 @@ import './ItemCard.css';
 import { useCart } from '../../contexts';
 import { Icons } from '../../assets/icons';
 import { Link } from 'react-router-dom';
+import ItemImage from '../item-image/ItemImage';
 
 const ItemCard = ({ item }: { item: InventoryItem }) => {
   const { cartItems, addToCart } = useCart();
@@ -10,12 +11,7 @@ const ItemCard = ({ item }: { item: InventoryItem }) => {
 
   return (
     <div className="item">
-      <Link to={`/detail/${item.id}`}>
-        <div
-          className="item-image"
-          style={{ backgroundImage: `url(${item.image})` }}
-        ></div>
-      </Link>
+      <ItemImage item={item} />
       <div className="item-overlay" onClick={() => addToCart(item)}>
         {isItemInCart ? (
           <>
