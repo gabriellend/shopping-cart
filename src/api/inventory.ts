@@ -1,7 +1,7 @@
 import { ENDPOINTS } from '../config/api';
-import { InventoryItem } from '../components/item-card/ItemCardModel';
+import { InventoryItemModel } from '../models';
 
-export const fetchInventory = async (): Promise<InventoryItem[]> => {
+export const fetchInventory = async (): Promise<InventoryItemModel[]> => {
   try {
     const response = await fetch(ENDPOINTS.WOMENS_CLOTHING);
     if (!response.ok) {

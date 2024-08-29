@@ -1,6 +1,6 @@
-import { useInventory } from '../../contexts';
-import { InventoryItem } from '../item-card/ItemCardModel';
-import { ItemCard, Error } from '../index';
+import { useInventory } from '../../../contexts';
+import { InventoryItemModel } from '../../../models';
+import { ItemCard, Error } from '../../../screens/home/components';
 import './ShopGrid.css';
 
 const ShopGrid = () => {
@@ -12,7 +12,7 @@ const ShopGrid = () => {
         <Error />
       ) : (
         <div className="shop">
-          {items.map((item: InventoryItem) => (
+          {items.map((item: InventoryItemModel) => (
             <ItemCard key={item.id} item={item} />
           ))}
         </div>

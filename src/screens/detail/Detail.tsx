@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useCart, useInventory } from '../../contexts';
-import { AddedToCart, ItemImage, SizeCircle } from '../../components';
+import { AddedToCart, ItemImage } from '../../common/components';
+import SizeCircle from './components/size-circle/SizeCircle';
 import './Detail.css';
 import { useState } from 'react';
 
@@ -26,6 +27,7 @@ const Detail = () => {
         <div className="sizes">
           {sizes.map((size) => (
             <SizeCircle
+              key={size}
               size={size}
               setSelectedSize={setSelectedSize}
               selected={selectedSize === size}
@@ -34,7 +36,11 @@ const Detail = () => {
         </div>
         <button
           className="add-to-cart-button"
-          onClick={() => addToCart(item, selectedSize)}
+          onClick={
+            selectedSize
+              ? () => addToCart(item, selectedSize)
+              : () => alert('Please select a size')
+          }
         >
           {isItemInCart ? <AddedToCart /> : 'Add to cart'}
         </button>

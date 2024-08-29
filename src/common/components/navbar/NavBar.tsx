@@ -1,7 +1,7 @@
-import { useCart } from '../../contexts/CartContext';
+import { useCart } from '../../../contexts/CartContext';
 import { Link } from 'react-router-dom';
 import { Logo } from '../index';
-import { Icons } from '../../assets/icons';
+import { Icons } from '../../../assets/icons';
 import './NavBar.css';
 
 const NavBar = () => {

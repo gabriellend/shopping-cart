@@ -1,4 +1,4 @@
-export interface InventoryItem {
+export interface InventoryItemModel {
   id: number;
   title: string;
   price: number;

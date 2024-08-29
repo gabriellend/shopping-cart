@@ -1,31 +1,36 @@
-import { createContext, useContext, useState } from 'react';
-import { InventoryItem } from '../components/item-card/ItemCardModel';
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from 'react';
+import { InventoryItemModel, CartItemModel } from '../models';
 
 interface CartContextValue {
-  cartItems: InventoryItem[];
-  addToCart: (item: InventoryItem, size: string) => void;
+  cartItems: InventoryItemModel[] | CartItemModel[];
+  addToCart: (item: InventoryItemModel, size: string | null) => void;
+  setCartItems: Dispatch<SetStateAction<InventoryItemModel[]>>;
 }
 
 const CartContext = createContext<CartContextValue>();
 const useCart = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  // A user can add to cart with or without a size
+  const [cartItems, setCartItems] = useState<
+    InventoryItemModel[] | CartItemModel[]
+  >([]);
 
-  const addToCart = (item: InventoryItem, size: string) => {
-    if (!size) {
-      return;
-    }
-
+  const addToCart = (item: InventoryItemModel, size: string | null) => {
     setCartItems((prevItems) => {
-      const updatedItem = { ...item, size };
-      const updatedItems = [...prevItems, updatedItem];
-      return updatedItems;
+      const itemToAdd = size ? { ...item, size } : item;
+      return [...prevItems, itemToAdd];
     });
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, setCartItems }}>
       {children}
     </CartContext.Provider>
   );

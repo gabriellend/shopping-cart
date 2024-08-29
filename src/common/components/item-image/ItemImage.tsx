@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { InventoryItem } from '../item-card/ItemCardModel';
+import { InventoryItemModel } from '../../../models';
 import './ItemImage.css';
 
-const ItemImage = ({ item }: { item: InventoryItem }) => {
+const ItemImage = ({ item }: { item: InventoryItemModel }) => {
   return (
     <Link to={`/detail/${item.id}`}>
       <div
