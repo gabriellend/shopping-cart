@@ -1,0 +1,22 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  padding: 70px 200px;
+}
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.total {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  width: 300px;
+  margin: 20px;
+}
+.lineItem {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}

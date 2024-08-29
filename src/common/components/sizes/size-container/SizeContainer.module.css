@@ -1,0 +1,6 @@
+.sizes {
+  display: flex;
+  width: 250px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

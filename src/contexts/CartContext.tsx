@@ -11,6 +11,7 @@ interface CartContextValue {
   cartItems: InventoryItemModel[] | CartItemModel[];
   addToCart: (item: InventoryItemModel, size: string | null) => void;
   setCartItems: Dispatch<SetStateAction<InventoryItemModel[]>>;
+  updateItemQuantity: (id: number, quantity: number) => void;
 }
 
 const CartContext = createContext<CartContextValue>();
@@ -24,13 +25,23 @@ const CartProvider = ({ children }) => {
 
   const addToCart = (item: InventoryItemModel, size: string | null) => {
     setCartItems((prevItems) => {
-      const itemToAdd = size ? { ...item, size } : item;
+      const itemToAdd = size
+        ? { ...item, size, quantity: 1 }
+        : { ...item, quantity: 1 };
       return [...prevItems, itemToAdd];
     });
   };
 
+  const updateItemQuantity = (id: number, quantity: number) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
+    );
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, setCartItems }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, setCartItems, updateItemQuantity }}
+    >
       {children}
     </CartContext.Provider>
   );

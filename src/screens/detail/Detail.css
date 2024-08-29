@@ -36,9 +36,3 @@
   height: 25px;
   margin-left: 10px;
 }
-.sizes {
-  display: flex;
-  width: 250px;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
