@@ -1,10 +1,18 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import {
+  createContext,
+  useState,
+  useEffect,
+  useContext,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import { InventoryItem } from '../components/item-card/ItemCardModel';
 import { fetchInventory } from '../api/inventory';
 
 interface ShopContextValue {
   items: InventoryItem[];
   error: string | null;
+  setItems: Dispatch<SetStateAction<InventoryItem[]>>;
 }
 
 export const ShopContext = createContext<ShopContextValue>();
@@ -30,7 +38,7 @@ const ShopProvider = ({ children }) => {
   }, []);
 
   return (
-    <ShopContext.Provider value={{ items, error }}>
+    <ShopContext.Provider value={{ items, error, setItems }}>
       {children}
     </ShopContext.Provider>
   );
