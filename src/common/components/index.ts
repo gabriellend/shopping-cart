@@ -5,3 +5,4 @@ export { default as ItemImage } from './item-image/ItemImage';
 export { default as AddedToCart } from './added-to-cart/AddedToCart';
 export { default as Button } from './button/Button';
 export { default as SizeContainer } from './sizes/size-container/SizeContainer';
+export { default as QuantitySelector } from './quantity-selector/QuantitySelector';

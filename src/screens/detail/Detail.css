@@ -9,11 +9,11 @@
 }
 .details {
   width: 50%;
-  height: 50%;
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 375px;
 }
 .details h1 {
   margin-bottom: 10px;

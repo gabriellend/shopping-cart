@@ -1,11 +1,11 @@
 import { Icons } from '../../../assets/icons';
-import './AddedToCart.css';
+import styles from './AddedToCart.module.css';
 
 const AddedToCart = () => {
   return (
     <>
       <span>Added to cart</span>
-      <img className="check-mark" src={Icons.checkMark} />
+      <img className={styles.checkMark} src={Icons.checkMark} />
     </>
   );
 };

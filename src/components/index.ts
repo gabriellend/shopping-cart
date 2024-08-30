@@ -1,9 +1,0 @@
-export { default as NavBar } from './navbar/NavBar';
-export { default as Logo } from './logo/Logo';
-export { default as Hero } from '../screens/home/components/hero/Hero';
-export { default as ShopGrid } from './shop-grid/ShopGrid';
-export { default as ItemCard } from './item-card/ItemCard';
-export { default as Error } from '../screens/home/components/error/Error';
-export { default as ItemImage } from './item-image/ItemImage';
-export { default as AddedToCart } from './added-to-cart/AddedToCart';
-export { default as SizeCircle } from '../common/components/sizes/size-circle/SizeCircle';

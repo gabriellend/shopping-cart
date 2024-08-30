@@ -4,23 +4,19 @@
   overflow: hidden;
   transition: transform 0.3s ease;
 }
-
 .item:hover {
   cursor: pointer;
   transform: scale(1.03);
 }
-
-.item-title {
+.itemTitle {
   padding: 10px;
   text-align: center;
 }
-
-.item-title h3 {
+.itemTitle h3 {
   font-size: 1em;
   margin: 10px 0;
 }
-
-.item-overlay {
+.itemOverlay {
   position: absolute;
   top: 330px;
   width: 100%;
@@ -34,13 +30,17 @@
   justify-content: center;
   align-items: center;
 }
-
-.item:hover .item-overlay {
+.item:hover .itemOverlay,
+.item:hover .sizes {
   visibility: visible;
 }
-
-.check-mark {
-  width: 30px;
-  height: 30px;
-  margin-left: 10px;
+.sizes {
+  position: absolute;
+  padding: 0;
+  top: 285px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
 }
