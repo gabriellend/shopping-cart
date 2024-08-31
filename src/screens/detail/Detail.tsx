@@ -7,15 +7,32 @@ import {
   SizeContainer,
 } from '../../common/components';
 import './Detail.css';
-import { useState } from 'react';
+import { useSize } from '../../hooks';
+import { InventoryItemModel } from '../../models';
 
 const Detail = () => {
   const { items } = useInventory();
-  const { cartItems, addToCart } = useCart();
+  const { addToCart, isItemInCart, setItemSize } = useCart();
   const { id } = useParams();
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const item = items.find((i) => i.id === Number(id));
-  const isItemInCart = cartItems.some((cartItem) => cartItem.id === item.id);
+  const itemInCart = isItemInCart(item.id);
+  const { selectedSize, setSelectedSize } = useSize(
+    itemInCart ? itemInCart.size : null
+  );
+
+  const handleSizeSelection = (size: string) => {
+    setSelectedSize(size);
+    const itemInCart = isItemInCart(item.id);
+    if (itemInCart) {
+      setItemSize(item.id, size);
+    }
+  };
+
+  const handleAddToCart = (item: InventoryItemModel) => {
+    selectedSize
+      ? addToCart(item, selectedSize)
+      : alert('Please select a size');
+  };
 
   return (
     <div className="detail-screen">
@@ -28,18 +45,12 @@ const Detail = () => {
         </div>
         <p>{item.description}</p>
         <SizeContainer
+          item={item}
           selectedSize={selectedSize}
           setSelectedSize={setSelectedSize}
         />
-        <Button
-          className="btn-primary"
-          onClick={
-            selectedSize
-              ? () => addToCart(item, selectedSize)
-              : () => alert('Please select a size')
-          }
-        >
-          {isItemInCart ? <AddedToCart /> : 'Add to cart'}
+        <Button className="btn-primary" onClick={() => handleAddToCart(item)}>
+          {itemInCart ? <AddedToCart /> : 'Add to cart'}
         </Button>
       </div>
     </div>

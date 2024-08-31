@@ -9,26 +9,23 @@ import { InventoryItemModel, CartItemModel } from '../models';
 
 interface CartContextValue {
   cartItems: InventoryItemModel[] | CartItemModel[];
-  addToCart: (item: InventoryItemModel, size: string | null) => void;
+  addToCart: (item: InventoryItemModel, size: string) => void;
   setCartItems: Dispatch<SetStateAction<InventoryItemModel[]>>;
+  updateItemSize: (id: number, size: string) => void;
   updateItemQuantity: (id: number, quantity: number) => void;
+  isItemInCart: (id: number) => CartItemModel;
 }
 
 const CartContext = createContext<CartContextValue>();
 const useCart = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
-  // A user can add to cart with or without a size
-  const [cartItems, setCartItems] = useState<
-    InventoryItemModel[] | CartItemModel[]
-  >([]);
+  const [cartItems, setCartItems] = useState<CartItemModel[]>([]);
 
-  const addToCart = (item: InventoryItemModel, size: string | null) => {
+  const addToCart = (item: InventoryItemModel, size: string) => {
     setCartItems((prevItems) => {
-      const itemToAdd = size
-        ? { ...item, size, quantity: 1 }
-        : { ...item, quantity: 1 };
-      return [...prevItems, itemToAdd];
+      console.log({ ...item, size, quantity: 1 });
+      return [...prevItems, { ...item, size, quantity: 1 }];
     });
   };
 
@@ -38,9 +35,27 @@ const CartProvider = ({ children }) => {
     );
   };
 
+  const updateItemSize = (id: number, size: string) => {
+    if (isItemInCart(id)) {
+      return setCartItems((prevItems) =>
+        prevItems.map((item) => (item.id === id ? { ...item, size } : item))
+      );
+    }
+  };
+
+  const isItemInCart = (id: number) =>
+    cartItems.find((cartItem) => cartItem.id === id);
+
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, setCartItems, updateItemQuantity }}
+      value={{
+        cartItems,
+        addToCart,
+        setCartItems,
+        updateItemQuantity,
+        updateItemSize,
+        isItemInCart,
+      }}
     >
       {children}
     </CartContext.Provider>

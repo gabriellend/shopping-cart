@@ -1,14 +1,24 @@
 import './SizeCircle.css';
 import { SizeCircleProps } from '../SizeModel';
+import { useCart } from '../../../../contexts';
 
-const SizeCircle = ({ size, setSelectedSize, selected }: SizeCircleProps) => {
+const SizeCircle = ({
+  item,
+  size,
+  selectedSize,
+  setSelectedSize,
+}: SizeCircleProps) => {
+  const { updateItemSize } = useCart();
+  const selected = item?.size ? item.size === size : selectedSize === size;
   const className = selected ? 'size selected' : 'size';
 
+  const handleSizeSelection = (size: string) => {
+    setSelectedSize(size);
+    updateItemSize(item?.id, size);
+  };
+
   return (
-    <div
-      onClick={setSelectedSize ? () => setSelectedSize(size) : () => {}}
-      className={className}
-    >
+    <div onClick={() => handleSizeSelection(size)} className={className}>
       {size}
     </div>
   );

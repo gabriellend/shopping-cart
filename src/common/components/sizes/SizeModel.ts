@@ -1,10 +1,12 @@
+import { Dispatch, SetStateAction } from 'react';
+import { CartItemModel, InventoryItemModel } from '../../../models';
+
 export interface SizeContainerProps {
-  selectedSize?: string;
-  setSelectedSize?: (size: string) => void;
+  item?: InventoryItemModel | CartItemModel;
+  selectedSize: string;
+  setSelectedSize: Dispatch<SetStateAction<string>>;
 }
 
-export interface SizeCircleProps {
+export interface SizeCircleProps extends SizeContainerProps {
   size: string;
-  selected: boolean;
-  setSelectedSize?: (size: string) => void;
 }

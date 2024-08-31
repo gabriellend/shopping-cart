@@ -1,12 +1,15 @@
 import styles from './CartItem.module.css';
 import { InventoryItemModel, CartItemModel } from '../../../../models';
-import { ItemImage, SizeContainer } from '../../../../common/components';
-import { useState } from 'react';
-import QuantitySelector from '../../../../components/quantity-selector/QuantitySelector';
+import {
+  ItemImage,
+  SizeContainer,
+  QuantitySelector,
+} from '../../../../common/components';
 import { useCart } from '../../../../contexts';
+import { useSize } from '../../../../hooks';
 
 const CartItem = ({ item }: InventoryItemModel | CartItemModel) => {
-  const [selectedSize, setSelectedSize] = useState<string | null>(item.size);
+  const { selectedSize, setSelectedSize } = useSize<string | null>(item.size);
   const { updateItemQuantity } = useCart();
 
   const handleQuantityChange = (delta: number) => {
@@ -25,6 +28,7 @@ const CartItem = ({ item }: InventoryItemModel | CartItemModel) => {
         <div className={styles.info}>
           <h2>{item.title}</h2>
           <SizeContainer
+            item={item}
             selectedSize={selectedSize}
             setSelectedSize={setSelectedSize}
           />

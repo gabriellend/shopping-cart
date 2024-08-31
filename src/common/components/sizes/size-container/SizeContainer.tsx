@@ -4,6 +4,7 @@ import { sizes } from '../../../constants/Constants';
 import { SizeContainerProps } from '../SizeModel';
 
 const SizeContainer = ({
+  item,
   selectedSize,
   setSelectedSize,
 }: SizeContainerProps) => {
@@ -12,9 +13,10 @@ const SizeContainer = ({
       {sizes.map((size) => (
         <SizeCircle
           key={size}
+          item={item}
           size={size}
+          selectedSize={selectedSize}
           setSelectedSize={setSelectedSize}
-          selected={selectedSize === size}
         />
       ))}
     </div>

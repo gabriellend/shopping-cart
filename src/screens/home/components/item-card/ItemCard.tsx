@@ -1,21 +1,42 @@
 import { InventoryItemModel } from './ItemCardModel';
-import './ItemCard.css';
+import styles from './ItemCard.module.css';
 import { useCart } from '../../../../contexts';
 import { Link } from 'react-router-dom';
-import { ItemImage, AddedToCart } from '../../../../common/components';
+import {
+  ItemImage,
+  AddedToCart,
+  SizeContainer,
+} from '../../../../common/components';
+import { useSize } from '../../../../hooks';
 
 const ItemCard = ({ item }: { item: InventoryItemModel }) => {
-  const { cartItems, addToCart } = useCart();
-  const isItemInCart = cartItems.some((cartItem) => cartItem.id === item.id);
+  const { addToCart, isItemInCart } = useCart();
+  const itemInCart = isItemInCart(item.id);
+  const { selectedSize, setSelectedSize } = useSize(
+    itemInCart ? itemInCart.size : null
+  );
+
+  const handleAddToCart = (item: InventoryItemModel) => {
+    selectedSize
+      ? addToCart(item, selectedSize)
+      : alert('Please select a size');
+  };
 
   return (
-    <div className="item">
+    <div className={styles.item}>
       <ItemImage item={item} />
-      <div className="item-overlay" onClick={() => addToCart(item, null)}>
-        {isItemInCart ? <AddedToCart /> : 'Add to cart'}
+      <div className={styles.sizes}>
+        <SizeContainer
+          item={item}
+          setSelectedSize={setSelectedSize}
+          selectedSize={selectedSize}
+        />
+      </div>
+      <div className={styles.itemOverlay} onClick={() => handleAddToCart(item)}>
+        {itemInCart ? <AddedToCart /> : 'Add to cart'}
       </div>
       <Link to={`/detail/${item.id}`}>
-        <div className="item-title">
+        <div className={styles.itemTitle}>
           <h3>{item.title}</h3>
         </div>
       </Link>
