@@ -9,38 +9,19 @@
   text-align: center;
   background-color: #f9f9f9;
 }
-
 .emptyCartMessage h1 {
   font-size: 1.5em;
   margin: 10px 0 10px;
   font-weight: 600;
   text-transform: lowercase;
 }
-
 .emptyCartMessage p {
   font-size: 1.1em;
   margin-bottom: 20px;
 }
-
 .emptyCartMessage .divider {
   width: 60px;
   height: 2px;
   background-color: var(--black);
   margin: 15px 0;
-}
-
-.emptyCartMessage {
-  padding: 10px 20px;
-  background-color: var(--black);
-  color: var(--white);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background-color 0.3s ease;
-}
-
-.emptyCartMessage {
-  background-color: var(--deep-red);
 }

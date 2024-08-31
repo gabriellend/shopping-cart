@@ -10,7 +10,7 @@ import { useSize } from '../../../../hooks';
 
 const CartItem = ({ item }: { item: CartItemModel }) => {
   const { selectedSize, setSelectedSize } = useSize(item.size);
-  const { updateItemQuantity } = useCart();
+  const { updateItemQuantity, removeFromCart } = useCart();
 
   const handleQuantityChange = (delta: number) => {
     const newQuantity = item.quantity + delta;
@@ -41,6 +41,12 @@ const CartItem = ({ item }: { item: CartItemModel }) => {
       <div className={styles.rightView}>
         <h2>{item.price}</h2>
       </div>
+      <button
+        className={styles.removeButton}
+        onClick={() => removeFromCart(item.id)}
+      >
+        ×
+      </button>
     </div>
   );
 };
