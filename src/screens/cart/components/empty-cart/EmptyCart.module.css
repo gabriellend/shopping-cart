@@ -7,7 +7,7 @@
   padding: 40px;
   border-radius: 12px;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: var(--very-light-gray);
 }
 .emptyCartMessage h1 {
   font-size: 1.5em;

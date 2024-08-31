@@ -7,6 +7,7 @@
   padding: 40px;
   border-radius: 12px;
   text-align: center;
+  background-color: var(--very-light-gray);
 }
 .errorMessage h1 {
   font-size: 1.5em;
@@ -21,25 +22,6 @@
 .errorMessage .divider {
   width: 60px;
   height: 2px;
-  background-color: var(--red);
+  background-color: var(--black);
   margin: 15px 0;
-}
-.errorMessage {
-  padding: 10px 20px;
-  background-color: #000;
-  color: #fff;
-  border: 2px solid var(--black);
-  border-radius: 8px;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border 0.3s ease;
-}
-.errorMessage {
-  background-color: var(--red);
-  color: #000;
-  border: 2px solid var(--red);
 }
