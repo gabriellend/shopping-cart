@@ -1,7 +1,7 @@
 import { useInventory } from '../../../contexts';
 import { InventoryItemModel } from '../../../models';
 import { ItemCard, Error } from '../../../screens/home/components';
-import './ShopGrid.css';
+import styles from './ShopGrid.module.css';
 
 const ShopGrid = () => {
   const { items, error } = useInventory();
@@ -11,7 +11,7 @@ const ShopGrid = () => {
       {error ? (
         <Error />
       ) : (
-        <div className="shop">
+        <div className={styles.shop}>
           {items.map((item: InventoryItemModel) => (
             <ItemCard key={item.id} item={item} />
           ))}

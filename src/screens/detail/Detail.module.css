@@ -1,0 +1,20 @@
+.detailScreen {
+  display: flex;
+  padding: 70px;
+}
+.imageWrapper {
+  width: 500px;
+  min-width: 350px;
+  margin-right: 70px;
+}
+.details {
+  width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 375px;
+}
+.details h1 {
+  margin-bottom: 10px;
+}

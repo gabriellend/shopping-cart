@@ -31,12 +31,12 @@
   background: var(--translucent-black-50);
 }
 
-.hero-content {
+.heroContent {
   width: 60%;
   z-index: 2;
 }
 
-.hero-content p {
+.heroContent p {
   font-size: 1.75em;
   color: var(--white);
 }

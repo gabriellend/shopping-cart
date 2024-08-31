@@ -1,14 +1,15 @@
-import './Error.css';
+import { Button } from '../../../../common/components';
+import styles from './Error.module.css';
 
 const Error = () => {
   return (
-    <div className="error-message">
+    <div className={styles.errorMessage}>
       <h1>Oops! Something Went Wrong</h1>
-      <div className="divider"></div>
+      <div className={styles.divider}></div>
       <p>We were unable to load the inventory. Please try again.</p>
-      <button className="btn-retry" onClick={() => window.location.reload()}>
+      <Button variant="primary" onClick={() => window.location.reload()}>
         Retry
-      </button>
+      </Button>
     </div>
   );
 };

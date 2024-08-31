@@ -1,8 +1,8 @@
-import './Hero.css';
+import styles from './Hero.module.css';
 const Hero = () => {
   return (
-    <div className="hero">
-      <div className="hero-content">
+    <div className={styles.hero}>
+      <div className={styles.heroContent}>
         <p>
           At blackwhitered, we believe that true style is found in simplicity.
           Our collection is a celebration of minimalism, elegance, and timeless

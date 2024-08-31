@@ -6,21 +6,21 @@ const Button = ({
   children,
   onClick,
   to,
+  variant = 'primary',
   type = 'button',
-  className = '',
   ...props
 }: ButtonProps) => {
-  const classNames = `${styles.btn} ${styles[className]}`;
+  const buttonClass = `${styles.btn} ${styles[variant]}`;
   if (to) {
     return (
-      <Link to={to} className={classNames} {...props}>
+      <Link to={to} className={buttonClass} {...props}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} className={classNames} onClick={onClick} {...props}>
+    <button type={type} className={buttonClass} onClick={onClick} {...props}>
       {children}
     </button>
   );

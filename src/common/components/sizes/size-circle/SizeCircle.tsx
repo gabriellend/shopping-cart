@@ -1,4 +1,4 @@
-import './SizeCircle.css';
+import styles from './SizeCircle.module.css';
 import { SizeCircleProps } from '../SizeModel';
 import { useCart } from '../../../../contexts';
 
@@ -10,7 +10,9 @@ const SizeCircle = ({
 }: SizeCircleProps) => {
   const { updateItemSize } = useCart();
   const selected = item?.size ? item.size === size : selectedSize === size;
-  const className = selected ? 'size selected' : 'size';
+  const className = selected
+    ? `${styles.selected} ${styles.size}`
+    : `${styles.size}`;
 
   const handleSizeSelection = (size: string) => {
     setSelectedSize(size);

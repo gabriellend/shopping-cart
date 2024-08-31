@@ -1,5 +1,5 @@
 import styles from './CartItem.module.css';
-import { InventoryItemModel, CartItemModel } from '../../../../models';
+import { CartItemModel } from '../../../../models';
 import {
   ItemImage,
   SizeContainer,
@@ -8,8 +8,8 @@ import {
 import { useCart } from '../../../../contexts';
 import { useSize } from '../../../../hooks';
 
-const CartItem = ({ item }: InventoryItemModel | CartItemModel) => {
-  const { selectedSize, setSelectedSize } = useSize<string | null>(item.size);
+const CartItem = ({ item }: { item: CartItemModel }) => {
+  const { selectedSize, setSelectedSize } = useSize(item.size);
   const { updateItemQuantity } = useCart();
 
   const handleQuantityChange = (delta: number) => {

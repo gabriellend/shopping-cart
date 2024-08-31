@@ -14,18 +14,18 @@
   width: 200px;
 }
 
-.btn-primary {
+.primary {
   background-color: var(--deep-red);
   color: white;
 }
 
-.btn-primary:hover {
+.primary:hover {
   background-color: var(--deep-red);
   transform: translateY(-2px);
   box-shadow: 0px 6px 8px --var(translucent-black-15);
 }
 
-.btn-disabled {
+.disabled {
   background-color: var(--light-gray);
   color: var(--med-gray);
   cursor: not-allowed;
