@@ -28,7 +28,7 @@
   top: 0;
   right: 0;
   width: 88%;
-  background: var(--black-overlay);
+  background: var(--translucent-black-50);
 }
 
 .hero-content {

@@ -9,9 +9,12 @@
   --white: #ffffff;
   --black: #000000;
   --red: #ff0000;
-  --black-overlay: rgba(0, 0, 0, 0.5);
+  --translucent-black-50: rgba(0, 0, 0, 0.5);
+  --translucent-black-15: rgba(0, 0, 0, 0.15);
   --red-overlay: rgba(139, 0, 0, 0.3);
   --deep-red: rgba(139, 0, 0, 0.85);
+  --light-gray: #d6d6d6;
+  --med-gray: #a1a1a1;
 }
 
 body {

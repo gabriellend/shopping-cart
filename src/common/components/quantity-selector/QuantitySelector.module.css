@@ -18,7 +18,8 @@
   margin: 0 5px;
 }
 .button:disabled {
-  background-color: var(--disabled-color);
+  background-color: var(--light-gray);
+  color: var(--med-gray);
   cursor: not-allowed;
 }
 .quantity {

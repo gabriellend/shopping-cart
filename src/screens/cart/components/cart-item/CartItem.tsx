@@ -14,7 +14,7 @@ const CartItem = ({ item }: InventoryItemModel | CartItemModel) => {
 
   const handleQuantityChange = (delta: number) => {
     const newQuantity = item.quantity + delta;
-    if (newQuantity >= 0) {
+    if (newQuantity >= 1) {
       updateItemQuantity(item.id, newQuantity);
     }
   };

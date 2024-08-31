@@ -10,7 +10,7 @@ const QuantitySelector = ({
       <button
         onClick={() => onQuantityChange(-1)}
         className={styles.button}
-        disabled={quantity <= 0}
+        disabled={quantity <= 1}
       >
         -
       </button>

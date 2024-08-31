@@ -20,13 +20,13 @@
 }
 
 .btn-primary:hover {
-  background-color: rgba(100, 0, 0, 0.85);
+  background-color: var(--deep-red);
   transform: translateY(-2px);
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 6px 8px --var(translucent-black-15);
 }
 
 .btn-disabled {
-  background-color: #d6d6d6;
-  color: #a1a1a1;
+  background-color: var(--light-gray);
+  color: var(--med-gray);
   cursor: not-allowed;
 }
