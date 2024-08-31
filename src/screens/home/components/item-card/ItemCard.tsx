@@ -4,7 +4,7 @@ import { useCart } from '../../../../contexts';
 import { Link } from 'react-router-dom';
 import {
   ItemImage,
-  AddedToCart,
+  AddToCartMessage,
   SizeContainer,
 } from '../../../../common/components';
 import { useSize } from '../../../../hooks';
@@ -33,7 +33,7 @@ const ItemCard = ({ item }: { item: InventoryItemModel }) => {
         />
       </div>
       <div className={styles.itemOverlay} onClick={() => handleAddToCart(item)}>
-        {itemInCart ? <AddedToCart /> : 'Add to cart'}
+        <AddToCartMessage itemInCart={itemInCart} />
       </div>
       <Link to={`/detail/${item.id}`}>
         <div className={styles.itemTitle}>

@@ -23,8 +23,12 @@ const useCart = () => useContext(CartContext);
 const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartItemModel[]>([]);
 
-  const addToCart = (item: InventoryItemModel, size: string) =>
+  const addToCart = (item: InventoryItemModel, size: string) => {
+    if (isItemInCart(item.id)) {
+      return;
+    }
     setCartItems((prevItems) => [...prevItems, { ...item, size, quantity: 1 }]);
+  };
 
   const removeFromCart = (id: number) =>
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));

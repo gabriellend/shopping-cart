@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useCart, useInventory } from '../../contexts';
 import {
-  AddedToCart,
+  AddToCartMessage,
   Button,
   ItemImage,
   SizeContainer,
@@ -42,7 +42,7 @@ const Detail = () => {
           setSelectedSize={setSelectedSize}
         />
         <Button variant="primary" onClick={() => handleAddToCart(item)}>
-          {itemInCart ? <AddedToCart /> : 'Add to cart'}
+          <AddToCartMessage itemInCart={itemInCart} />
         </Button>
       </div>
     </div>
