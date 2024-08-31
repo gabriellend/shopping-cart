@@ -1,0 +1,12 @@
+.total {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  width: 300px;
+  margin: 20px;
+}
+.lineItem {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}

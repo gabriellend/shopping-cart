@@ -8,7 +8,7 @@ import {
 import { InventoryItemModel, CartItemModel } from '../models';
 
 interface CartContextValue {
-  cartItems: InventoryItemModel[] | CartItemModel[];
+  cartItems: CartItemModel[];
   addToCart: (item: InventoryItemModel, size: string) => void;
   removeFromCart: (id: number) => void;
   setCartItems: Dispatch<SetStateAction<InventoryItemModel[]>>;
