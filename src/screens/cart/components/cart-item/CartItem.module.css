@@ -11,10 +11,13 @@
   display: flex;
   flex: 0.5;
   height: 100%;
+  align-items: center;
 }
 .imageWrapper {
   width: 175px;
+  height: 219px;
   margin: 20px;
+  overflow: hidden;
 }
 .info {
   font-size: 0.6em;
@@ -24,6 +27,7 @@
   justify-content: flex-start;
   text-align: left;
   padding: 10px;
+  align-self: flex-start;
 }
 .rightView {
   margin: 20px;

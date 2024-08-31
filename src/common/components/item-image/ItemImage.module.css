@@ -1,6 +1,6 @@
 .itemImage {
   width: 100%;
-  padding-top: 125%;
+  aspect-ratio: 4 / 5;
   background-size: 70%;
   background-position: center;
   background-repeat: no-repeat;
