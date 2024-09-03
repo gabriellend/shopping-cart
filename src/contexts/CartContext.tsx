@@ -24,7 +24,8 @@ const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState<CartItemModel[]>([]);
 
   const addToCart = (item: InventoryItemModel, size: string) => {
-    if (isItemInCart(item.id)) {
+    const itemInCart = isItemInCart(item.id);
+    if (itemInCart?.size === size) {
       return;
     }
     setCartItems((prevItems) => [...prevItems, { ...item, size, quantity: 1 }]);

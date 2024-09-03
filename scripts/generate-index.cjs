@@ -10,7 +10,8 @@ function createIndexFile(targetDir) {
 
   // Filter out the index.ts file and non-TypeScript files
   const tsFiles = files.filter(
-    (file) => file.endsWith('.ts') && file !== 'index.ts'
+    (file) =>
+      (file.endsWith('.ts') || file.endsWith('.tsx')) && file !== 'index.ts'
   );
 
   // Create export statements for each file
@@ -38,7 +39,7 @@ if (!targetDir) {
 }
 
 // Resolve the target directory path
-const resolvedTargetDir = path.resolve(__dirname, targetDir);
+const resolvedTargetDir = path.resolve(process.cwd(), targetDir);
 
 // Check if the directory exists
 if (!fs.existsSync(resolvedTargetDir)) {

@@ -23,12 +23,13 @@
   background-color: var(--deep-red);
   color: white;
   text-align: center;
-  padding: 10px 0;
+  padding: 11px 0;
   visibility: hidden;
   font-size: 1.2em;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none;
 }
 .item:hover .itemOverlay,
 .item:hover .sizes {

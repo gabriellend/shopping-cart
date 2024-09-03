@@ -32,9 +32,12 @@ const ItemCard = ({ item }: { item: InventoryItemModel }) => {
           selectedSize={selectedSize}
         />
       </div>
-      <div className={styles.itemOverlay} onClick={() => handleAddToCart(item)}>
+      <button
+        className={styles.itemOverlay}
+        onClick={() => handleAddToCart(item)}
+      >
         <AddToCartMessage itemInCart={itemInCart} />
-      </div>
+      </button>
       <Link to={`/detail/${item.id}`}>
         <div className={styles.itemTitle}>
           <h3>{item.title}</h3>
