@@ -3,3 +3,7 @@
   height: 100vh;
   text-align: center;
 }
+.skip-link {
+  position: absolute;
+  top: -40px;
+}

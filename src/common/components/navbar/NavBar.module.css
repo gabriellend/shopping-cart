@@ -11,6 +11,7 @@
   width: 25%;
   display: flex;
   justify-content: space-between;
+  text-transform: lowercase;
 }
 .cart {
   width: 50px;

@@ -11,7 +11,7 @@ const ShopGrid = () => {
       {error ? (
         <Error />
       ) : (
-        <div className={styles.shop}>
+        <div id="main-content" tabIndex={-1} className={styles.shop}>
           {items.map((item: InventoryItemModel) => (
             <ItemCard key={item.id} item={item} />
           ))}
