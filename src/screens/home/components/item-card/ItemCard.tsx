@@ -1,12 +1,12 @@
 import { InventoryItemModel } from './ItemCardModel';
 import styles from './ItemCard.module.css';
-import { useCart } from '../../../../contexts';
+import { useCart } from 'src/contexts';
 import { Link } from 'react-router-dom';
 import {
   ItemImage,
   AddToCartMessage,
   SizeContainer,
-} from '../../../../common/components';
+} from 'src/common/components';
 import { useSize } from '../../../../hooks';
 
 const ItemCard = ({ item }: { item: InventoryItemModel }) => {

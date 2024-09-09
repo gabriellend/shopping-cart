@@ -7,7 +7,6 @@ const Button = ({
   onClick,
   to,
   variant = 'primary',
-  type = 'button',
   ...props
 }: ButtonProps) => {
   const buttonClass = `${styles.btn} ${styles[variant]}`;
@@ -20,7 +19,7 @@ const Button = ({
   }
 
   return (
-    <button type={type} className={buttonClass} onClick={onClick} {...props}>
+    <button type="button" className={buttonClass} onClick={onClick} {...props}>
       {children}
     </button>
   );

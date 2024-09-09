@@ -1,26 +1,11 @@
-import {
-  createContext,
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useState,
-} from 'react';
-import { InventoryItemModel, CartItemModel } from '../models';
+import { createContext, ReactNode, useContext, useState } from 'react';
+import { InventoryItemModel, CartItemModel } from '../../models';
+import { CartContextValue, defaultCartContextValue } from './CartContextModel';
 
-interface CartContextValue {
-  cartItems: CartItemModel[];
-  addToCart: (item: InventoryItemModel, size: string) => void;
-  removeFromCart: (id: number) => void;
-  setCartItems: Dispatch<SetStateAction<InventoryItemModel[]>>;
-  updateItemSize: (id: number, size: string) => void;
-  updateItemQuantity: (id: number, quantity: number) => void;
-  isItemInCart: (id: number) => CartItemModel;
-}
-
-const CartContext = createContext<CartContextValue>();
+const CartContext = createContext<CartContextValue>(defaultCartContextValue);
 const useCart = () => useContext(CartContext);
 
-const CartProvider = ({ children }) => {
+const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItemModel[]>([]);
 
   const addToCart = (item: InventoryItemModel, size: string) => {
@@ -48,7 +33,7 @@ const CartProvider = ({ children }) => {
     }
   };
 
-  const isItemInCart = (id: number) =>
+  const isItemInCart = (id: number | undefined) =>
     cartItems.find((cartItem) => cartItem.id === id);
 
   return (

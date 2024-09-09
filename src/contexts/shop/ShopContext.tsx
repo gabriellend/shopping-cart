@@ -3,22 +3,18 @@ import {
   useState,
   useEffect,
   useContext,
-  Dispatch,
-  SetStateAction,
+  ReactNode,
 } from 'react';
-import { InventoryItemModel } from '../models';
-import { fetchInventory } from '../api/inventory';
+import { InventoryItemModel } from '../../models';
+import { fetchInventory } from '../../api/inventory';
+import { ShopContextValue, defaultShopContextValue } from './ShopContextModel';
 
-interface ShopContextValue {
-  items: InventoryItemModel[];
-  error: string | null;
-  setItems: Dispatch<SetStateAction<InventoryItemModel[]>>;
-}
-
-export const ShopContext = createContext<ShopContextValue>();
+export const ShopContext = createContext<ShopContextValue>(
+  defaultShopContextValue
+);
 const useInventory = () => useContext(ShopContext);
 
-const ShopProvider = ({ children }) => {
+const ShopProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<InventoryItemModel[]>([]);
   const [error, setError] = useState<string | null>(null);
 

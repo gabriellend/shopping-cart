@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "generate-index": "node scripts/generate-index.cjs",
-    "test": "vitest"
+    "test": "vitest",
+    "tsc-check": "tsc --noEmit"
   },
   "dependencies": {
     "eslint": "^8.57.0",

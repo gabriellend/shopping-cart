@@ -3,5 +3,4 @@ export interface ButtonProps {
   onClick?: () => void;
   to?: string; // path
   variant: string;
-  type?: string;
 }

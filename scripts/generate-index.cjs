@@ -11,7 +11,9 @@ function createIndexFile(targetDir) {
   // Filter out the index.ts file and non-TypeScript files
   const tsFiles = files.filter(
     (file) =>
-      (file.endsWith('.ts') || file.endsWith('.tsx')) && file !== 'index.ts'
+      (file.endsWith('.ts') || file.endsWith('.tsx')) &&
+      file !== 'index.ts' &&
+      !file.endsWith('.test.tsx')
   );
 
   // Create export statements for each file

@@ -3,8 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import App from './App.tsx';
-import { CartProvider } from './contexts/CartContext.tsx';
-import { ShopProvider } from './contexts/ShopContext.tsx';
+import { CartProvider, ShopProvider } from './contexts';
 
 describe('App component', () => {
   it('renders nav bar', () => {

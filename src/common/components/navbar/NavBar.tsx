@@ -1,4 +1,4 @@
-import { useCart } from '../../../contexts/CartContext';
+import { useCart } from 'src/contexts';
 import { Link } from 'react-router-dom';
 import { Logo } from '../index';
 import { Icons } from '../../../assets/icons';

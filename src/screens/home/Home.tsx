@@ -1,4 +1,4 @@
-import { ShopGrid } from '../../common/components';
+import { ShopGrid } from 'src/common/components';
 import { Hero } from './components';
 
 const Home = () => {
